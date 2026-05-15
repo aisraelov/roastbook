@@ -39,13 +39,6 @@ gaming vocabulary is explicitly banned.
 | TTS                       | ElevenLabs (`eleven_flash_v2_5`)  | Callum voice, low-latency model, `use_speaker_boost: true`.        |
 | In-app photo receiver     | `mentra-direct-receiver`          | Native iOS module (HTTP listener via `Network.framework`).         |
 
-We removed all on-device ML (originally Cactus / Whisper / Silero / LFM2-VL) because
-Whisper-base couldn't keep up with conversational audio and we needed real ergonomics for
-a hackathon demo. Everything except the camera and BLE plumbing is cloud-based now.
-
-There's also an unused `src/ai/anthropic.ts` kept around as a fallback option if you
-want to swap Grok out for Claude — flip the import in `src/ai/roast.ts`.
-
 ## What's required
 
 - A pair of **Mentra Live** glasses.
@@ -146,7 +139,7 @@ src/
 │       ├── PressyButton.tsx      # squish-on-press + haptic
 │       ├── PulseDot.tsx          # halo loop for status dot
 │       └── SlideInCard.tsx       # slide+spring+wiggle on mount
-└── ai/                           # (Cactus modules removed)
+└── ai/                           
 ```
 
 ## Tests
