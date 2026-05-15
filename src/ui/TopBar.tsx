@@ -20,10 +20,9 @@ type Props = {
   onConnect: () => void;
   onDisconnect: () => void;
   onOpenLogs: () => void;
-  onOpenCaptures: () => void;
 };
 
-export function TopBar({ onConnect, onDisconnect, onOpenLogs, onOpenCaptures }: Props) {
+export function TopBar({ onConnect, onDisconnect, onOpenLogs }: Props) {
   const presence = useStore((s) => s.presence);
   const settings = useStore((s) => s.settings);
   const setSettings = useStore((s) => s.setSettings);
@@ -103,11 +102,6 @@ export function TopBar({ onConnect, onDisconnect, onOpenLogs, onOpenCaptures }: 
               <PulseDot color={dot} pulse={scanning} />
               <Text style={styles.statusText}>{statusLabel}</Text>
             </Animated.View>
-          </PressyButton>
-          <PressyButton onPress={onOpenCaptures} haptic="light">
-            <View style={styles.miniPill}>
-              <Text style={styles.miniPillText}>🎙 WAVS</Text>
-            </View>
           </PressyButton>
         </View>
       </View>

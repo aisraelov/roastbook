@@ -81,7 +81,6 @@ export default function App() {
         onConnect={() => setScanOpen(true)}
         onDisconnect={() => void sensors.disconnect()}
         onOpenLogs={() => setLogsOpen(true)}
-        onOpenCaptures={() => setCapturesOpen(true)}
       />
       <Feed />
       <BottomBar
