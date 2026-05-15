@@ -1,24 +1,39 @@
-# Roastbook
+<p align="center">
+  <img src="./assets/icon.png" alt="Roastbook" width="140" />
+</p>
 
-Smart-glasses companion app that watches your POV through a pair of Mentra Live glasses
-and provides real-time commentary on the people you're looking at.
+<h1 align="center">Roastbook</h1>
+
+<p align="center">
+  <em>Real-time AI commentary on whoever you're looking at, streamed live through your smart glasses.</em>
+</p>
+
+<p align="center">
+  <img src="./screenshot.jpg" alt="Roastbook screenshot — Hyde mode roasting a coworker, confetti firing on a new roast" width="320" />
+</p>
+
+---
+
+Smart-glasses companion app that watches your POV through a pair of
+[Mentra Live](https://mentra.glass) glasses and provides real-time commentary on the
+people you're looking at.
 
 Two modes:
 
 - **🔥 Hyde** — savage roasts of whoever's in frame, framed for the user's benefit.
 - **✨ Jekyll** — warm, specific compliments about whoever's in frame.
 
-The conceit is: the glasses see your POV, the AI sees the person you're looking at, and
-either trash-talks them (Hyde) or hypes them up (Jekyll). System prompt frames the targets
-as "NPCs in a hyper-realistic life-sim" — that's a guard-rail to keep the model committed
-to actually mean output. The lines themselves read as real-world trash-talk; gaming
-vocabulary is explicitly banned.
+The conceit: the glasses see your POV, the AI sees the person you're looking at, and
+either trash-talks them (Hyde) or hypes them up (Jekyll). The system prompt frames the
+targets as "NPCs in a hyper-realistic life-sim" — that's a guard-rail to keep the model
+committed to actually mean output. The lines themselves read as real-world trash-talk;
+gaming vocabulary is explicitly banned.
 
 ## Stack
 
 | Capability                | Provider                          | Notes                                                              |
 | ------------------------- | --------------------------------- | ------------------------------------------------------------------ |
-| Glasses BLE / mic / camera | `@mentra/bluetooth-sdk@0.1.2`     | Continuous 16 kHz PCM via `setMicState(..., bypassVad=true, ...)`. |
+| Glasses BLE / mic / camera | [`@mentra/bluetooth-sdk@0.1.2`](https://www.npmjs.com/package/@mentra/bluetooth-sdk) | Continuous 16 kHz PCM via `setMicState(..., bypassVad=true, ...)`. |
 | Speech-to-text + speakers | ElevenLabs Scribe (`scribe_v1`)   | Diarized, per-word speaker labels.                                 |
 | Vision + roast generation | xAI Grok (`grok-4.3`)             | Multi-modal, OpenAI-compatible chat endpoint.                      |
 | TTS                       | ElevenLabs (`eleven_flash_v2_5`)  | Callum voice, low-latency model, `use_speaker_boost: true`.        |
