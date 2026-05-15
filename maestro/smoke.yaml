@@ -1,0 +1,31 @@
+appId: com.israelov.roastbook
+---
+- launchApp:
+    appId: com.israelov.roastbook
+- waitForAnimationToEnd
+- assertVisible: "ROASTBOOK"
+- assertVisible: "🔥 HYDE, ROAST"
+- assertVisible: "✨ JEKYLL, HYPE"
+- assertVisible: "CONNECT"
+- assertVisible: "nothing yet"
+- assertVisible: "🔥 ROAST NOW, 0 so far"
+- takeScreenshot: hyde-default
+
+- tapOn: "✨ JEKYLL, HYPE"
+- waitForAnimationToEnd
+- assertVisible: "✨ HYPE NOW, 0 so far"
+- takeScreenshot: jekyll-mode
+
+- tapOn: "🔥 HYDE, ROAST"
+- waitForAnimationToEnd
+- assertVisible: "🔥 ROAST NOW, 0 so far"
+- takeScreenshot: back-to-hyde
+
+- tapOn: "READ ALOUD"
+- waitForAnimationToEnd
+- takeScreenshot: tts-on
+
+- tapOn: "👥 0, 0 turns"
+- waitForAnimationToEnd
+- assertVisible: "PEOPLE"
+- takeScreenshot: people-sheet

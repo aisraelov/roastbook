@@ -1,0 +1,77 @@
+{
+  "expo": {
+    "name": "Roastbook",
+    "slug": "roastbook",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a0c"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.israelov.roastbook",
+      "icon": "./assets/icon.png",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Roastbook talks to your smart glasses over Bluetooth so it can roast you in real time.",
+        "NSBluetoothPeripheralUsageDescription": "Roastbook talks to your smart glasses over Bluetooth.",
+        "NSCameraUsageDescription": "Roastbook periodically snaps photos through the glasses to analyze the scene.",
+        "NSLocalNetworkUsageDescription": "Roastbook hosts a local photo-upload endpoint to receive pictures from the glasses.",
+        "NSMicrophoneUsageDescription": "Roastbook captures audio from the glasses microphone for on-device transcription.",
+        "UIBackgroundModes": [
+          "bluetooth-central",
+          "audio"
+        ]
+      }
+    },
+    "android": {
+      "package": "com.israelov.roastbook",
+      "softwareKeyboardLayoutMode": "pan",
+      "usesCleartextTraffic": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0a0c"
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.INTERNET",
+        "android.permission.POST_NOTIFICATIONS"
+      ]
+    },
+    "plugins": [
+      [
+        "@mentra/bluetooth-sdk",
+        {
+          "node": true
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 28,
+            "packagingOptions": {
+              "pickFirst": [
+                "**/libc++_shared.so",
+                "**/libonnxruntime.so",
+                "**/libonnxruntime4j_jni.so"
+              ]
+            }
+          }
+        }
+      ],
+      "expo-audio",
+      "expo-video"
+    ]
+  }
+}
